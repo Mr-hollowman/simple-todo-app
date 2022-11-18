@@ -59,8 +59,10 @@ export default function MyApp() {
             placeholder={'write something'}
             onChangeText={e => handleChange(e)}
           />
+          <View style={{marginTop:10, flexDirection:'row', justifyContent:'space-between'}}>
           <Button title="cancel" onPress={() => setIsEditing(false)} />
           <Button title="Confirm Edit" onPress={handleUpdate} />
+          </View>
         </View>
       ) : (
         <View>
@@ -81,7 +83,10 @@ export default function MyApp() {
               todo.map((item, index) => {
                 return (
                   <View key={index} style={style.onnumilla}>
+                    <View style={{flexDirection:"row"}}>
+                    <Text style={style.fontNormal}>{index+1}.</Text>
                     <Text style={style.fontNormal}>{item.task}</Text>
+                    </View>
                     <View style={style.icons}>
                       <TouchableOpacity onPress={() => handleEdit(item)}>
                         <Icon
@@ -124,6 +129,6 @@ const style = StyleSheet.create({
   },
   fontNormal: {
     fontSize: 18,
-    width: '80%',
+    paddingRight:5
   },
 });
