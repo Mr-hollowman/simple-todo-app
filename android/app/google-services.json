@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "841965138783",
+    "project_id": "mr-hollowman-todo",
+    "storage_bucket": "mr-hollowman-todo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841965138783:android:d82398b315232fcaee7cea",
+        "android_client_info": {
+          "package_name": "com.mrhollowman.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841965138783-33up0qi0u0sd677jttp2mqgnt92a9b11.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUvFmap8YRNjjq3BrxgwtcmQOP7MWKy2M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841965138783-33up0qi0u0sd677jttp2mqgnt92a9b11.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
