@@ -136,7 +136,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.my_todo"
+        applicationId "com.mrhollowman.todo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -248,14 +248,8 @@ android {
         }
     }
 }
-
-plugins {
-  id 'com.android.application'
-
-  // Add the Google services Gradle plugin
-  id 'com.google.gms.google-services'
-}
-
+// Add the Google services Gradle plugin
+apply plugin: 'com.google.gms.google-services'
 dependencies {
 
       // Import the Firebase BoM

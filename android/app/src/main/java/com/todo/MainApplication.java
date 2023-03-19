@@ -1,4 +1,4 @@
-package com.my_todo;
+package com.mrhollowman.todo;
 
 import android.app.Application;
 import android.content.Context;

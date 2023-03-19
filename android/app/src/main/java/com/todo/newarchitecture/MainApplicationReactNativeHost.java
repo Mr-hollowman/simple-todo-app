@@ -19,7 +19,7 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.my_todo.BuildConfig;
+import com.mrhollowman.todo.BuildConfig;
 import com.my_todo.newarchitecture.components.MainComponentsRegistry;
 import com.my_todo.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
