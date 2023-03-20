@@ -54,7 +54,7 @@ export default function SignIn({navigation}) {
         /> 
       </View> 
       <TouchableOpacity>
-        <Text style={styles.forgot_button} onPress={()=>setSignIn(false)}>Create new Account</Text> 
+        <Text style={styles.forgot_button} onPress={()=>setSignIn(!signIn)}>Create new Account</Text> 
       </TouchableOpacity> 
       <TouchableOpacity style={styles.loginBtn} onPress={handleSignIn}>
         <Text style={styles.loginText}>{signIn?"LOGIN":"SignUp"}</Text> 
