@@ -4,6 +4,7 @@ const TodoSlice = createSlice({
   name: 'todo',
   initialState: {
     todo: [],
+    userInfo:'',
   },
   reducers: {
     addTodo: (state, action) => {
@@ -25,9 +26,13 @@ const TodoSlice = createSlice({
         return item.id == action.payload.id ? action.payload : item;
       });
     },
+    addUserInfo:(state, action) => {
+      // let {todo} = state;
+      state.userInfo = action.payload
+    }
   },
 });
 
-export const {addTodo, deleteTodo, editTodo} = TodoSlice.actions;
+export const {addTodo, deleteTodo, editTodo, addUserInfo} = TodoSlice.actions;
 
 export default TodoSlice.reducer;

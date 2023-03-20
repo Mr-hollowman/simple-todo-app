@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,20 +8,30 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import auth, { firebase } from '@react-native-firebase/auth';
-import {signInWithEmailAndPassword} from '@react-native-firebase/app'
+import {useDispatch} from 'react-redux';
+import {addUserInfo} from '../redux/TodoSlice';
+import auth from '@react-native-firebase/auth';
+
 export default function SignIn({navigation}) {
+
+  const dispatch = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  useEffect(()=>{
-    firebase.app()
-  })
-  const handleSignIn = async()=>{
-    await auth().signInWithEmailAndPassword(email, password).then((response)=>{
-      console.log(response,"response");
+  const [signIn,setSignIn] = useState(true)
 
-    }).catch(err=>console.log(err))
-    // console.log(credinals,"credinals");
+  const handleSignIn = async()=>{
+    if(signIn){
+      await auth().signInWithEmailAndPassword(email, password).then((response)=>{
+      dispatch(addUserInfo(JSON.stringify(response)))
+      navigation.navigate("Dashboard")
+    }).catch(err=>alert(err))
+  }
+    else{
+      await auth().createUserWithEmailAndPassword(email,password).then(response=>{
+        dispatch(addUserInfo(JSON.stringify(response)))
+        navigation.navigate("Dashboard")
+      }).catch(err=>alert(err))
+    }
   }
 
   return (
@@ -44,10 +54,10 @@ export default function SignIn({navigation}) {
         /> 
       </View> 
       <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text> 
+        <Text style={styles.forgot_button} onPress={()=>setSignIn(false)}>Create new Account</Text> 
       </TouchableOpacity> 
       <TouchableOpacity style={styles.loginBtn} onPress={handleSignIn}>
-        <Text style={styles.loginText}>LOGIN</Text> 
+        <Text style={styles.loginText}>{signIn?"LOGIN":"SignUp"}</Text> 
       </TouchableOpacity> 
     </View> 
   );

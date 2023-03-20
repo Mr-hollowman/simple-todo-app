@@ -20,6 +20,9 @@ export default function Dashboard() {
     task: '',
   });
   const todo = useSelector(state => state.todo);
+  const userInfo = useSelector(state=>JSON.parse(state.userInfo))
+  console.log(userInfo.user.email);
+  console.log(todo);
   const dispatch = useDispatch();
 
   const handleCreateTodo = () => {
