@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,16 +8,20 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+import auth, { firebase } from '@react-native-firebase/auth';
+import {signInWithEmailAndPassword} from '@react-native-firebase/app'
 export default function SignIn({navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSignIn = ()=>{
-    if(email === "selva@gmail.com" && password === '12345'){
-      navigation.navigate("Dashboard")
-    }
-    else{
-      alert("wrong credinals")
-    }
+  useEffect(()=>{
+    firebase.app()
+  })
+  const handleSignIn = async()=>{
+    await auth().signInWithEmailAndPassword(email, password).then((response)=>{
+      console.log(response,"response");
+
+    }).catch(err=>console.log(err))
+    // console.log(credinals,"credinals");
   }
 
   return (

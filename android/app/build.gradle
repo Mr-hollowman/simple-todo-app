@@ -1,4 +1,7 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services'
+// Add the Google services Gradle plugin
+// apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -248,8 +251,6 @@ android {
         }
     }
 }
-// Add the Google services Gradle plugin
-apply plugin: 'com.google.gms.google-services'
 dependencies {
 
       // Import the Firebase BoM
