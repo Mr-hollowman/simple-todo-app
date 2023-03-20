@@ -15,7 +15,7 @@ export default function MyApp() {
         <Stack.Screen
           name="Home"
           component={SignIn}
-          options={{title: 'Sigin'}}
+          options={{title: 'Login'}}
         />
         <Stack.Screen name="Dashboard" component={Dashboard} />
       </Stack.Navigator>

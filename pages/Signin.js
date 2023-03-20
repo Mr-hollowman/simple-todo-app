@@ -19,6 +19,16 @@ export default function SignIn({navigation}) {
   const [password, setPassword] = useState("");
   const [signIn,setSignIn] = useState(true)
 
+  const handleRoute = ()=>{
+    setSignIn(!signIn)
+    if(!signIn){
+      navigation.setOptions({title:"Login"})
+    }
+    else{
+      navigation.setOptions({title:"Register"})
+    }
+  }
+
   const handleSignIn = async()=>{
     if(signIn){
       await auth().signInWithEmailAndPassword(email, password).then((response)=>{
@@ -39,7 +49,7 @@ export default function SignIn({navigation}) {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="Email"
           placeholderTextColor="#003f5c"
           onChangeText={(email) => setEmail(email)}
         /> 
@@ -47,17 +57,17 @@ export default function SignIn({navigation}) {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Password"
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         /> 
       </View> 
       <TouchableOpacity>
-        <Text style={styles.forgot_button} onPress={()=>setSignIn(!signIn)}>Create new Account</Text> 
+        <Text style={styles.forgot_button} onPress={handleRoute}>{signIn?"Create a new account":"click here to signin"}</Text> 
       </TouchableOpacity> 
       <TouchableOpacity style={styles.loginBtn} onPress={handleSignIn}>
-        <Text style={styles.loginText}>{signIn?"LOGIN":"SignUp"}</Text> 
+        <Text style={styles.loginText}>{signIn?"Login":"Register"}</Text> 
       </TouchableOpacity> 
     </View> 
   );
@@ -98,4 +108,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
     backgroundColor: "#4863A0",
   },
+  loginText:{
+    fontSize:20
+  }
 });
