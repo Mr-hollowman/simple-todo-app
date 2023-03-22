@@ -13,7 +13,7 @@ import {addUserInfo} from '../redux/TodoSlice';
 import auth from '@react-native-firebase/auth';
 
 export default function SignIn({navigation}) {
-
+console.log("rendered");
   const dispatch = useDispatch()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

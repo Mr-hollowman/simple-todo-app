@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -11,8 +11,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import {addTodo, deleteTodo, editTodo} from '../redux/TodoSlice';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import store from '../redux/store';
 
-export default function Dashboard() {
+export default function Dashboard({navigation}) {
   const [newTodo, setNewTodo] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [data, setData] = useState({
@@ -20,8 +21,15 @@ export default function Dashboard() {
     task: '',
   });
   const todo = useSelector(state => state.todo);
-  const userInfo = useSelector(state=>JSON.parse(state.userInfo))
-  console.log(userInfo.user.email);
+  // const userInfo = useSelector(state=>JSON.parse(state.userInfo))
+
+  useEffect(()=>{
+    if(!store.getState().userInfo){
+      navigation.navigate("Login")
+    }
+  })
+
+  // console.log(userInfo.user.email);
   console.log(todo);
   const dispatch = useDispatch();
 
